@@ -1,17 +1,18 @@
-import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.io.File;
-import java.io.FileInputStream;
+import javax.swing.JButton; // for buttons
+import javax.swing.JFileChooser; // for choosing file
+import javax.swing.JFrame; // setting up frame
+import javax.swing.JOptionPane; // selecting the file
+import javax.swing.JTextField; // text filed for key
+import java.awt.FlowLayout; // box layout
+import java.awt.Font; // font of the text
+import java.io.File; // inputing the fil
+import java.io.FileInputStream;  
 import java.io.FileOutputStream;
 public class ImageOperation {
 
     public static void operate(int key)
     {
+        // Choosing the file
 
         JFileChooser fileChooser=new JFileChooser();
         fileChooser.showOpenDialog(null);
@@ -28,7 +29,8 @@ public class ImageOperation {
             for(byte b:data)
             {
                 System.out.println(b);
-                data[i]=(byte)(b^key);
+                data[i]=(byte)(b^key); // using xor cipher algorithm
+                // xor of previous key will return the previous value
                 i++;
             }
 
@@ -46,7 +48,7 @@ public class ImageOperation {
                                                       //Actual Code starts from here
     public static void main(String[] args) {
         
-        System.out.println("this is testing");
+      //  System.out.println("this is testing");
 
         JFrame f=new JFrame();
         f.setTitle("Image Operation");
@@ -54,7 +56,7 @@ public class ImageOperation {
         f.setLocationRelativeTo(null);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        Font font=new Font("Roboto",Font.BOLD,25);
+        Font font=new Font("Times New Roman",Font.BOLD,25);
                                                                  //creating button
         JButton button=new JButton();
         button.setText("Open Image");
@@ -67,7 +69,7 @@ public class ImageOperation {
 
         
         button.addActionListener(e->{
-            System.out.println("button clicked");
+           // System.out.println("button clicked");
             String text=textField.getText();
             int temp=Integer.parseInt(text);
             operate(temp);
